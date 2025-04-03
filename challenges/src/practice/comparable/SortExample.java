@@ -1,7 +1,6 @@
-package practice.comparablevscomparator;
+package practice.comparable;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class SortExample {
@@ -25,5 +24,8 @@ public class SortExample {
 
         // Collections.sort(emps);  -- gives error as the object type cannot use comparable
 
+        //comparable -- use for only one logic sorting
+        Collections.sort(emps);
+        System.out.println(emps);
     }
 }
