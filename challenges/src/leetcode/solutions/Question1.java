@@ -1,4 +1,4 @@
-package solutions;
+package leetcode.solutions;
 
 import java.util.Scanner;
 import java.util.Stack;
