@@ -1,52 +1,37 @@
 package codility.solutions;
 
-import java.util.*;
-
 public class Task1 {
-    int solution(int n) {
-        int count = 0;
-        List<Integer> gapList = new ArrayList<>();
-        int remainder;
-      //  int binaryNumber = convertToBinary(n);
+    public static int solution(int N) {
+        int maxGap = 0;
+        int currentGap = 0;
+        boolean counting = false;
 
-
-        Stack<Integer> stack = new Stack<>();
-        while (n != 0){
-            remainder = n % 2;
-            stack.push(remainder);
-            n /= 2;
-        }
-     //   System.out.println(stack);
-
-        while (!stack.isEmpty()){
-            int popped = stack.pop();
-            if (popped == 1) {
-                gapList.add(count);
-                count = 0;
-            }else {
-                count = count + 1;
+        while (N > 0) {
+            if ((N & 1) == 1) {
+                // Found a 1
+                if (counting) {
+                    // End of a gap
+                    maxGap = Math.max(maxGap, currentGap);
+                }
+                // Start counting from next zero
+                counting = true;
+                currentGap = 0;
+            } else {
+                // Found a 0
+                if (counting) {
+                    currentGap++;
+                }
             }
+            N >>= 1; // Shift bits to the right
         }
-        return  Collections.max(gapList);
+
+        return maxGap;
     }
 
-/*    private int convertToBinary(int decimalNumber) {
-        int remainder, i = 1, binaryNumber = 0;
-        while (decimalNumber != 0) {
-            remainder = decimalNumber % 2;
-            decimalNumber = decimalNumber / 2;
-            binaryNumber += remainder * i;
-            i *= 10;
-        }
-        return binaryNumber;
-    }*/
-
+    // Example usage
     public static void main(String[] args) {
-        Task1 task1 = new Task1();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter an integer: ");
-        int n = scanner.nextInt();
-        System.out.println(task1.solution(n));
+        System.out.println(solution(1041)); // Output: 5
+        System.out.println(solution(32));   // Output: 0
+        System.out.println(solution(529));  // Output: 4
     }
-
 }
