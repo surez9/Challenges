@@ -28,6 +28,7 @@ public class Question1 {
                 // When we encounter '[', push current string and current number to stack
                 stack.push(currentString.toString());
                 stack.push(Integer.toString(currentNum));
+
                 // Reset the current string and current number
                 currentString.setLength(0);
                 currentNum = 0;
