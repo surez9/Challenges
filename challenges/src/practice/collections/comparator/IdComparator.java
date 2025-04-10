@@ -1,4 +1,4 @@
-package practice.comparator;
+package practice.collections.comparator;
 
 import java.util.Comparator;
 

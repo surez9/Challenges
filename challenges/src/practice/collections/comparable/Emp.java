@@ -1,6 +1,6 @@
-package practice.comparator;
+package practice.collections.comparable;
 
-public class Emp{
+public class Emp implements Comparable<Emp>{
 
     private String name;
     private String phone;
@@ -45,4 +45,8 @@ public class Emp{
                 '}';
     }
 
+    @Override
+    public int compareTo(Emp o) {
+        return this.empId-o.empId;
+    }
 }
