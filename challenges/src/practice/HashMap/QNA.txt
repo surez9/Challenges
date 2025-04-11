@@ -1,5 +1,65 @@
+Questions related to HashMap.
 
     1. Which data structure HashMap represents?
     Ans: Hash Table data structure,
         (key,value) pair
         O(1) time if we have the key.
+
+    2. Which data structure is used to implement HashMap in Java?
+    Ans: Array and LinkedList
+        Array to store bucket. Inside bucket data is stored in linkedlist manner(i.e mappings which land in the same bucket)
+
+    3. Is HashMap thread-safe in Java?
+    Ans: No, HashMap is not thread safe
+         Multiple thread can access same object
+
+    4. What will happen if you use HashMap in a multithreaded Java application?
+    Ans: When multiple threads access the HashMap then they can modify the data at sametime.
+        Concurrent HashMap can be used in new Java ver
+
+    5. How do you remove a mapping while iterating over HashMap in Java?
+    Ans: remove() of iterator
+        e.g Iterator itr = map.entrySet().iterator();
+            while(itr.hasNext()){
+                Map.Entry current = itr.next();
+                if(current.getKey.equals("matching")){
+                itr.move();
+                }
+            }
+
+    6. What is the load factor in HashMap?
+    Ans: Number that controls the resizing of the hashMap(internal table).
+
+    7. How many entries you can store in HashMap? What is the maximum limit?
+    Ans: No limit for HashMap.
+        size() return int -> limit -- out of size case if no of entries increases so there is new method
+        in JDK 8 by adding mappingCount() return long value
+
+    8. What is the difference between the capacity and size of HashMap in Java?
+    Ans: Capacity: how many entries HashMap can store
+         size: entries currently present
+
+    9. What is ConcurrentHashMao in Java?
+    Ans: Map implementation, which can be safely used in a concurrent and multi-threaded Java program.
+        Performance and Scalability of ConcurrentHashMap is high as Compared to Hashtable.
+
+    10. Can you store in duplicate key in HashMap?
+    Ans: No,
+
+    11. Can you store the duplicate value in Java HashMap?
+    Ans: Yes
+
+    12. In which order mappings are stored in HashMap?
+    Ans: No order, hash and index calculated using key
+
+    13. What will happen if two different keys of HashMap return the same hashcode()?
+    Ans: Hash Collision, goes to bucket uses linkedlist
+        if any performance issues changes to binary tree.
+
+    14. When does ConcurrentModificationException occur?
+    Ans: Multiple thread modifying same object
+
+
+
+
+
