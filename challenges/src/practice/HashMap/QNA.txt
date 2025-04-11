@@ -1,0 +1,5 @@
+
+    1. Which data structure HashMap represents?
+    Ans: Hash Table data structure,
+        (key,value) pair
+        O(1) time if we have the key.
